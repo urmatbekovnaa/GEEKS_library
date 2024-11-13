@@ -1,0 +1,18 @@
+{% include 'header.html' %}
+
+
+
+        {% for i in children %}
+        <div class="card" style="width: 18rem; margin: 0 auto;">
+            <img src="https://m.media-amazon.com/images/I/A1lv97-jJoL._AC_UF1000,1000_QL80_.jpg" class="card-img-top" alt="Изображение">
+            <div class="card-body">
+                <h5 class="card-title">{{ i.title }}</h5>
+                <p class="card-text">{{ i.priсe }}</p>
+            </div>
+        </div>
+        {% endfor %}
+
+    </div>
+
+
+{% include 'footer.html' %}
