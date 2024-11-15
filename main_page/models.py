@@ -18,6 +18,12 @@ class Books(models.Model):
     author = models.CharField(max_length=100, verbose_name='Введите автора книги')
     audio_book = models.URLField(verbose_name='Введите ссылку на аудиокн')
     created_at = models.DateTimeField(auto_now_add=True, null=True)
+    stock_count = models.PositiveIntegerField(default=0, verbose_name="Количество в наличии", null=True)
+
+    def reduce_stock(self):
+        if self.stock_count > 0:
+            self.stock_count -= 1
+            self.save()
 
     def average_rating(self):
         reviews = self.reviews.all()
